@@ -1,5 +1,12 @@
 {% include "partials/htmlhead.njk" %}
 
+<header>
+    <nav>
+        {% navlist collections.all %}
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
+    </nav>
+</header>
+
 <main>
 {% block content %}
 
@@ -10,4 +17,11 @@
 {% endblock %}
 </main>
 
+<footer>
+    <nav>
+        {% navlist collections.all | eleventyNavigation, page, 2 %}
+    </nav>
+</footer>
+
 {% include "partials/htmlfoot.njk" %}
+
